@@ -28,24 +28,24 @@ app.get("/api/tasks", (req, res) => {
       { id: 1, title: "Task 1", completed: false },
       { id: 2, title: "Task 2", completed: true }
     ]);
-  }, 10000); // 10 seconds delay
+  }, 10000);
 });
 
 app.get("/api/leaves", (req, res) => {
   setTimeout(() => {
     res.json({ leaves: 5 });
-  }, 5000); // 5 seconds delay
+  }, 5000);
 });
 
 app.get("/api/wfh", (req, res) => {
   setTimeout(() => {
     res.json({ WFH: 2 });
-  }, 5000); // 5 seconds delay
+  }, 5000);
 });
 app.get("/api/sick-leaves", (req, res) => {
   setTimeout(() => {
     res.json({ sickLeaves: 3 });
-  }, 5000); // 5 seconds delay
+  }, 5000);
 });
 
 app.get("/api/team-tasks", (req, res) => {

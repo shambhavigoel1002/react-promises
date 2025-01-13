@@ -18,7 +18,7 @@ function App() {
   const [tasksPromise, setTasksPromise] = useState([]);
   const [loadingPromise, setLoadingPromise] = useState(false);
   const [errorPromise, setErrorPromise] = useState(null);
-  const [userMessage, setUserMessage] = useState(""); // State for storing user message
+  const [userMessage, setUserMessage] = useState("");
   const [sickLeaves, setSickLeaves] = useState(null);
   const [leavesCallBack, setLeavesCallBack] = useState(null);
   const [WFHCallBack, setWFHCallBack] = useState(null);
@@ -26,9 +26,8 @@ function App() {
     const storedToken = localStorage.getItem("token");
     if (storedToken) {
       setToken(storedToken);
-      // Set up axios defaults for authenticated requests
       axios.defaults.headers.common["Authorization"] = `Bearer ${storedToken}`;
-      fetchUserDetailsCallback((message) => setUserMessage(message)); // Get user details and update state
+      fetchUserDetailsCallback((message) => setUserMessage(message));
     }
     setIsLoading(false);
   }, []);
@@ -64,7 +63,7 @@ function App() {
   // Fetch tasks using XMLHttpRequest
   const fetchTasksXMLHttpRequest = () => {
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", "http://localhost:5000/api/tasks", false); // 'false' makes this a synchronous request
+    xhr.open("GET", "http://localhost:5000/api/tasks", false);
     xhr.send();
 
     if (xhr.status === 200) {
